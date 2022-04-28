@@ -1,8 +1,9 @@
+"""CRUD operations/utility functions for creating data."""
 from model import db, User, Movie, Rating, connect_to_db
 
 
 def create_user(email, password):
-    """Create and return a new user."""
+    """Create and return a User object."""
 
     user = User(email=email, password=password)
 
@@ -10,7 +11,7 @@ def create_user(email, password):
 
 
 def create_movie(title, overview, release_date, poster_path):
-    """Create and return a new movie."""
+    """Create and return a Movie object."""
 
     movie = Movie(title = title, overview = overview, release_date = release_date, poster_path= poster_path)
 
@@ -18,13 +19,12 @@ def create_movie(title, overview, release_date, poster_path):
 
 
 def create_rating(score, movie, user):
+    """Create and return a Rating object."""
 
     rating = Rating(score=score, movie=movie, user=user) 
 
     return rating
 
-
-# new_user = User(email='admin@website.com', password='admin')
 
 if __name__ == '__main__':
     from server import app  

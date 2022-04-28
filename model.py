@@ -24,7 +24,6 @@ class User(db.Model):
 class Movie(db.Model):
     """A movie."""
 
-
     __tablename__ = 'movies'
 
     movie_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
@@ -57,8 +56,6 @@ class Rating(db.Model):
         return f'<Rating rating_id={self.rating_id} score={self.score}>'
 
 
-
-
 def connect_to_db(flask_app, db_uri="postgresql:///ratings", echo=True):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
     flask_app.config["SQLALCHEMY_ECHO"] = echo
@@ -68,8 +65,6 @@ def connect_to_db(flask_app, db_uri="postgresql:///ratings", echo=True):
     db.init_app(flask_app)
 
     print("Connected to the db!")
-
-
 
 
 
